@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { MovieProvider } from "./MovieContext";
+import MovieList from "./MovieList";
+import Nav from "./Nav";
+import AddMovie from "./AddMovie";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    /* Sarmaladığımız bu provider yapısı,içerisinde bulunan tüm elementlere,sakladığı verilere ulaşma imkanı sağlar.Bu örnekte 2 componente veriye ulaşma şansı verdik */
+    <MovieProvider>
+      <div className="App">
+        <Nav />
+        <AddMovie />
+        <MovieList />
+      </div>
+    </MovieProvider>
   );
 }
 
